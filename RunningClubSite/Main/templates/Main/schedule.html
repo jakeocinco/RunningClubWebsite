@@ -1,0 +1,31 @@
+{% extends "Main/base.html" %}
+
+{% block content %}
+  <br>
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+      <div class="card shadow-lg">
+        <h1 class="card-header">Schedule</h1>
+        <div class="card-body">
+          {% for m in meets%}
+            {% if m.show == True%}
+              <h3>{{ m.name }}</h3>
+
+              {% if m.activeLink == True%}
+                <p> {{m.location}} -- {{m.date|date:"F j, Y"}} @ {{m.date|date:"P"}} -- <a href="{{m.signuplink}}"">Sign up Link.</a></p>
+              {% else %}
+                <p> {{m.location}} -- {{m.date|date:"F j, Y"}} @ {{m.date|date:"P"}}</p>
+              {%endif%}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+
+
+{% endblock content %}

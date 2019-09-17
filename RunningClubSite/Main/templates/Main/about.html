@@ -1,5 +1,71 @@
 {% extends "Main/base.html" %}
 
 {% block content %}
-  <h1> Page About</h1>
+    <div class="container">
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <a href="/home"><img src="/static/teamNats.jpg" width="300" height="300" style="width: 100%; object-fit: cover;"> </a>
+        </div>
+        <div class="col-7">
+          <h2> Litte bit about us...</h2>
+          <p>
+              Running Club is the only student group open to any full-time student focused on distance running, cross country, track and field, and marathons. The club is coming off of it's most successful season yet and looks to build on that even more. We continue to meet Monday through Friday at 5:15 P.M. at the Gettler soccer field on campus, and opportunities for weekend runs. If you just want to come out and run with friends, continue to compete and improve through NIRCA events, or need help training for a half or full marathon come check us out!
+          </p>
+        </div>
+       </div>
+
+       <br>
+       <p><hr>
+
+       <div class="row justify-content-center">
+         <div class="col-3" >
+           <h3> Our Goal </h3>
+         </div>
+         <div class="col-9">
+           <p>
+               UC Running Club promotes running in a friendly and supportive environment for participants to develop a healthy lifestyle, socialize with other runners, and meet their personal fitness goals. Also it provides the chance for members to compete on a local, regional, and national level.
+           </p>
+         </div>
+      </div>
+
+      <p><hr>
+      <div class="row justify-content-center">
+        <div class="col-3" >
+          <h3> Our History </h3>
+        </div>
+        <div class="col-9" >
+          <p>
+            The UC Running Club was founded in 2003 by Josh Stevens. Initially, membership was sparse, with only a core group of runners. Then, enter Mike Brothers. From 2005-2008 the Running Club was led under the direction of Mike for three years. He formed the club’s organization and beliefs: “Running can be fun, if approached correctly”.
+          </p>
+          <p>
+           In the Fall of 2008, the UC Running Club underwent an organization and executive shift. The graduation of Mike Brothers allowed Adam Hehr to take over who was appointed by Brothers himself. Adam had a new version of the club and decided to do things a little differently. It was decided to split the executive authority among 6 people: President, Vice President, Treasurer, Secretary, Webmaster, and Faculty Advisor. This allowed club to input more ideas and spread the workload.
+          </p>
+          <p>
+           In 2011 Kelly Meyer took over Running Club president and kept these same ideas and concepts. After her graduation, Nick Kienzle was appointed to his presidency. Nick would lead the club for two years. After Nick, Jack Randall would take over and lead the club for two years. During these years, the club would see the most growth and competitiveness it ever has. Bryan Wilson and Sean Kane led the club through to 2018. Grant Powers and Gunnar Stockman took over in 2018 and will continue to lead us this coming school year!
+          </p>
+        </div>
+     </div>
+
+     <p><hr>
+     <div class="row justify-content-center">
+       <div class="col-3" >
+         <h3> Other Sites </h3>
+       </div>
+       <div class="col-9" >
+         {% for f in AboutUsLinks%}
+             <div class="row justify-content-center">
+               <div class="col-4" >
+                 <p> {{f.Title}}:</p>
+               </div>
+               <div class="col-8" >
+                 <a href="http://{{f.Link}}"> {{f.Link}}</a>
+               </div>
+            </div>
+         {% endfor %}
+
+      </div
+    </div>
+    </div>
+
 {% endblock content %}

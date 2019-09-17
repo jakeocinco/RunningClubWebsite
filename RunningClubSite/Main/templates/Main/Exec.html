@@ -1,0 +1,50 @@
+{% extends "Main/base.html" %}
+
+{% block content %}
+
+<div class="container" >
+  <br><br>
+  <div class="row justify-content-center">
+    <!--<div class="col-">-->
+    <div class="col-10">
+      <div class="row justify-content-center">
+        <!--<div class="col-">-->
+
+        {% for e in exec %}
+
+        {% if e.isValidPicture %}
+          <div class="col-9">
+              <h5> {{ e.exec2.name }} </h5>
+              {% for a in e.about %}
+                <p> {{ a}} </p>
+              {%endfor%}
+              {% if e.isValidEmail %}
+                <p> Email: {{ e.exec2.email }} </p>
+              {% endif %}
+              <p><hr>
+          </div>
+          <div class="col-3">
+            <img src="/static/{{ e.picUrl}}" style="width: 100%; heigh: 100%">
+          </div>
+        {% else %}
+          <div class="col-12">
+              <h5> {{ e.exec2.name }} </h5>
+              {% for a in e.about %}
+                <p> {{ a}} </p>
+              {%endfor%}
+              {% if e.isValidEmail %}
+                <p> Email: {{ e.exec2.email }} </p>
+              {% endif %}
+              <p><hr>
+          </div>
+        {% endif %}
+
+        {% endfor %}
+
+
+        </div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

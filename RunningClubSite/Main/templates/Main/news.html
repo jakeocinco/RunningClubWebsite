@@ -1,5 +1,37 @@
 {% extends "Main/base.html" %}
 
 {% block content %}
-  <h1> Page News</h1>
+
+  <div class="container" >
+    <br><br>
+    <div class="row justify-content-center">
+      <!--<div class="col-">-->
+      <div class="col-9">
+        {% for p in posts %}
+          <h2> {{ p.title }} </h2>
+          <h6> {{p.date_posted|date:"F j, Y"}}</h6>
+          {% for c in p.content%}
+              <p>{{c}}</p>
+          {% endfor%}
+          <p><hr>
+        {% endfor %}
+      </div>
+      <div class="col-3">
+        <div class="card" style="border-radius: 15px;">
+          <!--background-color: #E8E8E8 border-radius: 15px 15px 0px 0px;-->
+          <h2 class="card-header" style="background-color: #E8E8E8; border-radius: 15px 15px 0px 0px;">Archives</h2>
+          <div class="card-body">
+            <!-- TODO Make this look like side module with ~10 most recents news/twitter/(insta?) posts-->
+            <!-- TODO Also puts links to the actual news page where all news and social media activity will be arfchived-->
+            {% for a in archives %}
+              <p><a href="/news/{{a.Y}}/{{a.M}}/">{{a.Date}}</a></p>
+
+            {% endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 {% endblock content %}
