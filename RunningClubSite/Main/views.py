@@ -212,7 +212,7 @@ def news(request, year = '', month=''):
                         }]
 
         if str(n.date_posted.year) == year or len(year) == 0:
-            print(str(n.date_posted.month) + '==' + month)
+            #print(str(n.date_posted.month) + '==' + month)
             if str(n.date_posted.month) == month or len(month) == 0:
                 paragraphs = n.content.splitlines()
                 post = {
@@ -293,7 +293,7 @@ def schedule(request):
 # Create your views here.
 def FAQs(request):
     context = {
-        'scheduleActive' : True,
+        'infoActive' : True,
         'faq' :  FAQ.objects.all()
     }
     return render(request, 'Main/FAQ.html',context)
@@ -325,6 +325,7 @@ def Exec(request):
 
 
     context = {
+        'infoActive' : True,
         'exec' : wholeExec,#Executives.objects.all().order_by('-order').reverse(),
     }
     return render(request, 'Main/Exec.html',context)

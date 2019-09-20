@@ -21,10 +21,13 @@
               {% if e.isValidEmail %}
                 <p> Email: {{ e.exec2.email }} </p>
               {% endif %}
-              <p><hr>
           </div>
           <div class="col-3">
             <img src="/static/{{ e.picUrl}}" style="width: 100%; heigh: 100%">
+
+          </div>
+          <div class="col-12">
+            <p><hr>
           </div>
         {% else %}
           <div class="col-12">
@@ -39,10 +42,11 @@
           </div>
         {% endif %}
 
+
+        <p><hr>
         {% endfor %}
 
 
-        </div>
 
     </div>
   </div>
