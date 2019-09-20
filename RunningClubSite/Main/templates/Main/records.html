@@ -43,11 +43,13 @@
                   </div>
 
                   {% if validData%}
+                  <br>
+                  
                   {% for r in races %}
                   <table class="table">
                     <thead>
                       <tr>
-                        <th colspan="4" style="text-align: center;">{{r.name}}</th>
+                        <th colspan="4" style="text-align: center; background-color: #E8E8E8">{{r.name}}</th>
                       </tr>
                       <tr>
                         <th scope="col">Distance</th>
@@ -60,10 +62,10 @@
                       {% for rr in r.races %}
                         {% if rr.valid %}
                           <tr>
-                            <td>{{rr.distance}}</td>
-                            <td>{{rr.time}}</td>
-                            <td>{{rr.meet}}</td>
-                            <td>{{rr.year}}</td>
+                            <td style="width: 30%">{{rr.distance}}</td>
+                            <td style="width: 20%">{{rr.time}}</td>
+                            <td style="width: 35%">{{rr.meet}}</td>
+                            <td style="width: 15%">{{rr.year}}</td>
                           </tr>
                         {% endif %}
                       {% endfor %}

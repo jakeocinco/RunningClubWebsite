@@ -13,6 +13,7 @@ AboutUsLinks = [{'Title':"University of Cincinnati",'Link':"www.uc.edu"},{'Title
 def readExcel(records, races, name):
 
     validData = False
+    name = name.lower()
 
     raceLen = {
         '5k':0,
@@ -31,11 +32,11 @@ def readExcel(records, races, name):
             for nRows in range(1,numRows):
                 if sheet.cell_value(nRows,nCols) == '':
                     break
-                elif name in sheet.cell_value(nRows,nCols).strip():
+                elif name in sheet.cell_value(nRows,nCols).strip().lower():
                     nameFound = False
 
                     for rr in races:
-                        if sheet.cell_value(nRows,nCols).strip() == rr['name']:
+                        if sheet.cell_value(nRows,nCols).strip().lower() == rr['name'].lower():
                             raceArr = rr['races']
                             r = raceArr[raceLen[raceDist]]
 
@@ -87,10 +88,10 @@ def readExcel(records, races, name):
             for nRows in range(1,numRows):
                 if sheet.cell_value(nRows,nCols) == '':
                     break
-                elif name in sheet.cell_value(nRows,nCols).strip():
+                elif name in sheet.cell_value(nRows,nCols).strip().lower():
                     nameFound = False
                     for rr in races:
-                        if sheet.cell_value(nRows,nCols).strip() == rr['name']:
+                        if sheet.cell_value(nRows,nCols).strip().lower() == rr['name'].lower():
                             raceArr = rr['races']
                             r = raceArr[raceLen[raceDist]]
 
@@ -137,10 +138,10 @@ def readExcel(records, races, name):
             for nRows in range(1,numRows):
                 if sheet.cell_value(nRows,nCols) == '':
                     break
-                elif name in sheet.cell_value(nRows,nCols).strip():
+                elif name in sheet.cell_value(nRows,nCols).strip().lower():
                     nameFound = False
                     for rr in races:
-                        if sheet.cell_value(nRows,nCols).strip() == rr['name']:
+                        if sheet.cell_value(nRows,nCols).strip().lower() == rr['name'].lower():
                             raceArr = rr['races']
                             r = raceArr[raceLen['Half Marathon']]
 
