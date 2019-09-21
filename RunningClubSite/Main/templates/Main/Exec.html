@@ -9,41 +9,44 @@
     <div class="col-10">
       <div class="row justify-content-center">
         <!--<div class="col-">-->
-
-        {% for e in exec %}
-
-        {% if e.isValidPicture %}
-          <div class="col-9">
-              <h5> {{ e.exec2.name }} </h5>
-              {% for a in e.about %}
-                <p> {{ a}} </p>
-              {%endfor%}
-              {% if e.isValidEmail %}
-                <p> Email: {{ e.exec2.email }} </p>
-              {% endif %}
-          </div>
-          <div class="col-3">
-            <img src="/static/{{ e.picUrl}}" style="width: 100%; heigh: 100%">
-
-          </div>
-          <div class="col-12">
+        <div class="col-12">
+            <h2> 2019 - 2020 Executive Board </h2>
             <p><hr>
-          </div>
-        {% else %}
-          <div class="col-12">
+        </div>
+        {% for e in exec %}
+            <div class="col-12">
               <h5> {{ e.exec2.name }} </h5>
-              {% for a in e.about %}
-                <p> {{ a}} </p>
-              {%endfor%}
+            </div>
+
+            {% if e.isValidPicture %}
+                <div class="col-9">
+                    {% for a in e.about %}
+                      <p> {{ a}} </p>
+                    {%endfor%}
+                </div>
+                <div class="col-3">
+                    <img src="/static/{{ e.picUrl}}" style="max-width:88%; max-height:88%;
+                      -webkit-transform: rotate({{e.exec2.imageRotation}}deg);
+                      -moz-transform: rotate({{e.exec2.imageRotation}}deg);
+                      -o-transform: rotate({{e.exec2.imageRotation}}deg);
+                      -ms-transform: rotate({{e.exec2.imageRotation}}deg);
+                      transform: rotate({{e.exec2.imageRotation}}deg);">
+                </div>
+
+            {% else %}
+                <div class="col-12">
+                    {% for a in e.about %}
+                      <p> {{ a}} </p>
+                    {%endfor%}
+                </div>
+            {% endif %}
+
+            <div class="col-12">
               {% if e.isValidEmail %}
                 <p> Email: {{ e.exec2.email }} </p>
               {% endif %}
               <p><hr>
-          </div>
-        {% endif %}
-
-
-        <p><hr>
+            </div>
         {% endfor %}
 
 

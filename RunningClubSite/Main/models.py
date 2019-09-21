@@ -48,6 +48,8 @@ class Executives(models.Model):
     WEB_SOCIAL_MEDIA = 'Web/Social Media'
     ADVISOR = 'Advisor'
 
+
+
     POSITION = (
         (PRESIDENT, 'President'),
         (VICE_PRESIDENT, 'Vice President'),
@@ -56,12 +58,22 @@ class Executives(models.Model):
         (WEB_SOCIAL_MEDIA, 'Web/Social Media'),
         (ADVISOR, 'Advisor'),
     )
+
+    ROTATION = (
+        ('0', '0'),
+        ('90', '90'),
+        ('180', '180'),
+        ('270', '270'),
+    )
+
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=16, choices=POSITION, default=PRESIDENT)
     about =  models.TextField()
     email = models.CharField(max_length=100)
     order = models.PositiveIntegerField()
     picture = models.ImageField(blank=True, upload_to="media")
+    imageRotation = models.CharField(max_length=3, choices=ROTATION, default='0')
+
     #link = models.CharField(max_length=100)
     #auto_now_add when post was created
 

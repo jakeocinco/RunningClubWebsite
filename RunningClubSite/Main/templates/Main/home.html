@@ -9,7 +9,7 @@
 
   <div class="container">
     <div class="row">
-        <div class="col-9" style="outline: 2px dashed blue;">
+        <div class="col-9">
           <!-- TODO put information from main page of old page here -->
           <div class="row">
             <div class="col-5">
@@ -36,7 +36,6 @@
           <hr>
 
           <h3 class="text-center">Check out Bryan Wilson's Vlog from our NIRCA Nationals Adventure in Fall 2017</h3>
-          <p class="text-center">INSERT VIDE</p>
           <div class="row justify-content-center">
             <iframe width="620" height="349" src="https://www.youtube.com/embed/A6IsQaKNUJs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
@@ -44,6 +43,27 @@
           <!--Social Media-->
           <div>
             <br>
+            <p><hr>
+            <div class="row justify-content-center">
+              <div class="col-3" >
+                <h3> Social Media </h3>
+              </div>
+              <div class="col-9" >
+                {% for f in socialMedia%}
+                    <div class="row justify-content-center">
+                      <div class="col-4" >
+                        <p> {{f.site}}:</p>
+                      </div>
+                      <div class="col-8" >
+                        <a href="{{f.url}}"> {{f.handle}}</a>
+                      </div>
+                   </div>
+                {% endfor %}
+
+             </div
+           </div>
+           </div>
+            <!--
             Social Media (TODO)
             {% instagram_user_recent_media ucclubrunning %}
             {% for media in recent_media %}
@@ -54,7 +74,7 @@
                     </a>
                 </div>
             {% endfor %}
-            <br>
+            <br>-->
           </div>
         </div>
         <div class="col-3">

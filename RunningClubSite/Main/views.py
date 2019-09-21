@@ -178,10 +178,12 @@ def home(request):
             str = p.content
             p.content = str[0:140] + "..."
 
+    socialMedia = [{'site':'Twitter','handle':'@UCClubRunning','url':'https://twitter.com/ucclubrunning'}, {'site':'Instagram','handle':'@UCClubRunning','url':'https://www.instagram.com/ucclubrunning/'}]
 
     context = {
         'homeActive' : True,
-        'stories' : posts[0:3]
+        'stories' : posts[0:3],
+        'socialMedia' : socialMedia
     }
     return render(request, 'Main/home.html',context)
 
