@@ -1,0 +1,47 @@
+<Route name="mtStorm">
+  <Direction>
+    <Text>Left on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed through CCM Circle towards TUC.</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed by McMicken toward Clifton Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Clifton Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Lafayette Ave.</Text>
+  </Direction>
+  <Option>
+    <Direction>
+      <Text>If short: Left on Middleton Ave.</Text>
+    </Direction>
+    <Direction>
+      <Text>If Long: Proceed on Lafayette.</Text>
+    </Direction>
+  </Option>
+  <Direction>
+    <Text>Go to the dead end and turn around.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Middleton Ave.</Text>
+    <Sub>Long/Short go backthe same wat from here.</Sub>
+  </Direction>
+  <Direction>
+    <Text>Left on Ludlow Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Brookline Ave, into Burnett Woods.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Burnett Woods Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Cross MLK Dr., back onto campus.</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed through campus to Gettler.</Text>
+  </Direction>
+</Route>

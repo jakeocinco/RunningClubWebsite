@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^news/(?P<year>[0-9]+)/', views.news, name='News'),
     path('news/', views.news, name='News'),
     path('exec/',views.Exec, name='Exec'),
+    path('routes/',views.Routes, name='Routes'),
 ]

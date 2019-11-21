@@ -79,3 +79,15 @@ class Executives(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Route(models.Model):
+    name = models.CharField(max_length=100)
+    longDistance = models.CharField(max_length=100)
+    shortDistance = models.CharField(blank=True,max_length=100)
+    picture = models.ImageField(upload_to="media/routes")
+    directions = models.FileField(upload_to="media/routes")
+    order = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.name

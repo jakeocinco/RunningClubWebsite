@@ -3,9 +3,14 @@ from .models import Meet
 from .models import FAQ
 from .models import Post
 from .models import Executives
+from .models import Route
 import xlrd
 
 from .news import newsMain
+
+import xml.etree.ElementTree as ET
+from PIL import Image
+
 
 Months = {1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November', 12:'December'}
 AboutUsLinks = [{'Title':"University of Cincinnati",'Link':"www.uc.edu"},{'Title':"NIRCA",'Link':"www.clubrunning.org"},{'Title':"UC Running Club Campus Link",'Link':"campuslink.uc.edu/organization/runningclub"}]
@@ -332,3 +337,98 @@ def Exec(request):
         'exec' : wholeExec,#Executives.objects.all().order_by('-order').reverse(),
     }
     return render(request, 'Main/Exec.html',context)
+
+def Routes(request):
+    routes = Route.objects.all().order_by('-order').reverse()
+
+
+    routesContext = []
+    for r in routes:
+        routeArr = []
+        num = 1
+
+        ## This is code that parses the directions of the routes
+        # TODO probably better to make this dict but come back to that
+        routestring = str(r.directions)
+        root = ET.parse(routestring).getroot()
+        for c in root.getchildren():
+
+            if c.tag == 'Direction':
+                route = {'direction':'__','comment':[]}
+
+                for cc in c.getchildren():
+                    if cc.tag == 'Text':
+                        route['direction'] = str(num) + ". " + cc.text
+                        #routeArr += [str(num) + ". " + cc.text]
+                    if cc.tag == 'Sub':
+                        route['comment'] += [" - " + cc.text]
+                        #routeArr += [" - " + cc.text]
+                routeArr += [route]
+            if c.tag == 'Option':
+
+                let = 'a'
+                for cc in c.getchildren():
+                    if cc.tag == 'Direction':
+                        route = {'direction':'__','comment':[]}
+                        for ccc in cc.getchildren():
+                            if ccc.tag == 'Text':
+                                route['direction'] = str(num) + let + ". " + ccc.text
+                                #routeArr += [str(num) + let + ". " + ccc.text]
+                            if ccc.tag == 'Sub':
+                                route['comment'] += [" - " + ccc.text]
+                                #routeArr += [" - " + ccc.text]
+                        routeArr += [route]
+                    let = chr(ord(let) + 1)
+
+            num = num + 1
+
+        ## This is code for the image
+        # TODO maybe pass something in the context that shows what height and width percentages to display the image at
+        urlStr = ""
+        width = 0
+        height = 0
+
+        if len(str(r.picture)) > 4:
+
+            picstring = str(r.picture)
+            urlStr = picstring[len('media/'):len(picstring)]
+
+            im = Image.open(picstring)
+            width, height = im.size
+
+            print("pre-height: " + str(height) + ", pre-width: " + str(width))
+            normalize = max([width, height]) * 1.0
+            width = (width / normalize) * ( 100.0)
+            height = (height / normalize) * ( 100.0)
+
+            print("height: " + str(height) + ", width: " + str(width))
+
+        # TODO remake route context to encompass all the old info with new directions and image size
+        routesContext += [{'name':r.name,'instructions':routeArr,'picture':urlStr, 'size': {'h':height,'w':width}}]
+
+    threes = []
+    thirdCounter = 0
+    for r in routesContext:
+        if thirdCounter % 3 == 0:
+            threes += [[]]
+        threes[int(thirdCounter/3)] += [r]
+        thirdCounter += 1
+
+    for r in routesContext:
+        if thirdCounter % 3 == 0:
+            threes += [[]]
+        threes[int(thirdCounter/3)] += [r]
+        thirdCounter += 1
+
+
+    #for t in threes:
+    #    for tt in t:
+    #        print(t.name)
+    ## TODO -- consider grouping routes into three ( or some derivable number optimal to screen size) to make each row look more uniform
+    ## OR pass pictures separatly and make sure that they all match up (seems unsafe though)
+    context = {
+        'infoActive'    : True,
+        'routes'        : routesContext,
+        'routes2'       : threes
+    }
+    return render(request, 'Main/routes.html',context)

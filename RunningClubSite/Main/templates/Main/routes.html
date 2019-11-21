@@ -1,0 +1,39 @@
+{% extends "Main/base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10" style="margin-top: 2%;">
+        <h1 class="text-center text-uppercase display-4" style="font-size:1.5vw;"> This is a page offers a selection of our most common routes. Each day we will decide who wants to go short or long and split into groups accordingly, then we will choose a route.</h1>
+
+    </div>
+  </div>
+
+  {% for r in routes2 %}
+    <div class="row" >
+      {% for rr in r %}
+        <div class="col-4" style= "text-align: center; margin-top: 4%; margin-bottom: 1.5%;">
+          <img src="/static/{{rr.picture}}" style="width:{{rr.size.w}}%; max-height:{{rr.size.w}}%;">
+        </div>
+      {% endfor %}
+    </div>
+    <div class="row">
+      {% for rr in r %}
+        <div class="col-4" style= "">
+
+          <h3>{{rr.name}}</h3>
+          <hr style="border:none; height:1px;background-color:#000080">
+          {% for intructs in rr.instructions%}
+            <p style="margin:0; padding:0;"> {{intructs.direction}} </p>
+            {% for comment in intructs.comment%}
+              <p style="margin:0; padding:0;"> {{comment }}</p>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+
+
+{% endblock content %}

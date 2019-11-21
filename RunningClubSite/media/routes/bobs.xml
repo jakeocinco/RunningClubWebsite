@@ -1,0 +1,38 @@
+<Route name="mtStorm">
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on William Howard Taft/Calhoun St.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Victory Pkwy.</Text>
+  </Direction>
+  <Option>
+    <Direction>
+      <Text>f Short: Left on MLK Dr.</Text>
+    </Direction>
+    <Direction>
+      <Text>If Long Right on MLK Dr./Madison Rd.</Text>
+    </Direction>
+  </Option>
+  <Direction>
+    <Text>Turn around at Torrence Pkwy</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed on MLK Dr. from Madison Rd.</Text>
+    <Sub>Long/Short go back the same way from here.</Sub>
+  </Direction>
+  <Direction>
+    <Text>Left on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Stop at Gettler.</Text>
+  </Direction>
+</Route>
