@@ -1,0 +1,47 @@
+<Route name="zoo">
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on MLK Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Vine St.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Erkenbrecher Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Dury Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Forest Ave.</Text>
+  </Direction>
+  <Option>
+    <Direction>
+      <Text>If Short: Left on Clifton Ave.</Text>
+    </Direction>
+    <Direction>
+      <Text>If Long: Right on Clifton Ave, to Mt. Storm.</Text>
+      <Sub>To Mt. Storm and back down Middleton Ave.</Sub>
+    </Direction>
+  </Option>
+  <Direction>
+    <Text>Left on Ludlow Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Brookline Ave, into Burnett Woods.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Burnett Woods Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Cross MLK Dr., back onto campus.</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed through campus to Gettler.</Text>
+  </Direction>
+</Route>

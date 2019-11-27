@@ -1,0 +1,61 @@
+<Route name="twopark">
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Calhoun St.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Ohio Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text> Make Loop in Bellevue Park</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Ohio Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text> Left on Warner St.</Text>
+  </Direction>
+  <Direction>
+    <Text> Left on Ravine St.</Text>
+  </Direction>
+  <Direction>
+    <Text> Immediate right onto Fairview Park Rd.</Text>
+  </Direction>
+  <Direction>
+    <Text> Go through Park, right on McMillan St.</Text>
+  </Direction>
+  <Direction>
+    <Text> Left on Fairview Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text> Right on Straight St.</Text>
+  </Direction>
+  <Option>
+    <Direction>
+      <Text>If Short: Go onto campus back to Gettler.</Text>
+    </Direction>
+    <Direction>
+      <Text>If Long: Left on Clifton Ave.</Text>
+    </Direction>
+  </Option>
+  <Direction>
+    <Text> Right on Ludlow Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text> Right on Brookline Ave, into Burnett Woods.</Text>
+  </Direction>
+  <Direction>
+    <Text> Left on Burnett Woods Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text> Cross MLK Dr., back onto campus.</Text>
+  </Direction>
+  <Direction>
+    <Text> Proceed through campus to Gettler.</Text>
+  </Direction>
+</Route>

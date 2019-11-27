@@ -1,0 +1,53 @@
+<Route name="eden">
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on William Howard Taft/Calhoun St.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Victory Pkwy.</Text>
+  </Direction>
+  <Direction>
+    <Text>Proceed on to Eden Park Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Lake Dr. (Into Eden Park)</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Eden Park Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>RJump on Bike Path at Martin Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left to Mirror Lake.</Text>
+  </Direction>
+  <Direction>
+    <Text>Loop around Mirror Lake.</Text>
+  </Direction>
+  <Direction>
+    <Text>Exit Park, Left on Eden Park Dr.</Text>
+  </Direction>
+  <Direction>
+    <Text>Continue on to Dorchester Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Auburn Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on William Howard Taft Rd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Stop at Gettler.</Text>
+  </Direction>
+</Route>

@@ -240,7 +240,6 @@ def home(request):
     }
     return render(request, 'Main/home.html',context)
 
-
 # Create your views here.
 def about(request):
     context = {
@@ -342,7 +341,7 @@ def records(request,fullName=''):
 def schedule(request):
     context = {
         'scheduleActive' : True,
-        'meets' :  Meet.objects.all()
+        'meets' :  sorted(Meet.objects.all(), key = lambda i: i.date,reverse=False)
     }
     return render(request, 'Main/schedule.html',context)
 
@@ -366,12 +365,17 @@ def Exec(request):
         if e.email.lower() == "none":
             email = False
 
+        print(e.name)
         urlStr = ""
-        if len(str(e.picture)) > 4:
-            picstring = str(e.picture)
-            urlStr = picstring[len('media/'):len(picstring)]
-            print(e.picture)
-            print(urlStr)
+        if  len(e.picture) > 4:
+            print(e.name)
+            urlStr = e.picture
+        #if len(str(e.picture)) > 4:
+        #    print(e.picture.image.url)
+        #    #picstring = str(e.picture)
+        #    #urlStr = picstring[len('media/'):len(picstring)]
+        #    print(e.picture)
+        #    print(urlStr)
 
             picture = True
 
@@ -397,8 +401,9 @@ def Routes(request):
 
         ## This is code that parses the directions of the routes
         # TODO probably better to make this dict but come back to that
-        routestring = str(r.directions)
-        root = ET.parse(routestring).getroot()
+        routestring = str(r.directionsText)
+
+        root = ET.fromstring(routestring)
         for c in root.getchildren():
 
             if c.tag == 'Direction':
@@ -436,7 +441,7 @@ def Routes(request):
         width = 0
         height = 0
 
-        if len(str(r.picture)) > 4:
+        '''if len(str(r.picture)) > 4:
 
             picstring = str(r.picture)
             urlStr = picstring[len('media/'):len(picstring)]
@@ -449,10 +454,16 @@ def Routes(request):
             width = (width / normalize) * ( 100.0)
             height = (height / normalize) * ( 100.0)
 
-            print("height: " + str(height) + ", width: " + str(width))
+            print("height: " + str(height) + ", width: " + str(width))'''
 
+        shortEx = False
+        short = str(r.shortDistance)
+
+        if short != "":
+            shortEx = True
+        print(r.longDistance)
         # TODO remake route context to encompass all the old info with new directions and image size
-        routesContext += [{'name':r.name,'instructions':routeArr,'picture':urlStr, 'size': {'h':height,'w':width}}]
+        routesContext += [{'name':r.name,'long':str(r.longDistance), 'short':short, 'shortExists':shortEx,'instructions':routeArr,'picture':r.picture, 'size': {'h':95,'w':95}}]
 
     threes = []
     thirdCounter = 0
@@ -462,11 +473,6 @@ def Routes(request):
         threes[int(thirdCounter/3)] += [r]
         thirdCounter += 1
 
-    for r in routesContext:
-        if thirdCounter % 3 == 0:
-            threes += [[]]
-        threes[int(thirdCounter/3)] += [r]
-        thirdCounter += 1
 
 
     #for t in threes:

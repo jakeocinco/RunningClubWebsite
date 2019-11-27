@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 
 class Post(models.Model):
@@ -71,7 +72,7 @@ class Executives(models.Model):
     about =  models.TextField()
     email = models.CharField(max_length=100)
     order = models.PositiveIntegerField()
-    picture = models.ImageField(blank=True, upload_to="media")
+    picture = CloudinaryField('image', blank=True)
     imageRotation = models.CharField(max_length=3, choices=ROTATION, default='0')
 
     #link = models.CharField(max_length=100)
@@ -85,8 +86,8 @@ class Route(models.Model):
     name = models.CharField(max_length=100)
     longDistance = models.CharField(max_length=100)
     shortDistance = models.CharField(blank=True,max_length=100)
-    picture = models.ImageField(upload_to="media/routes")
-    directions = models.FileField(upload_to="media/routes")
+    picture = CloudinaryField('image')
+    directionsText = models.TextField(max_length=10000)
     order = models.PositiveIntegerField()
 
     def __str__(self):

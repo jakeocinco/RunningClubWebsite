@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
+import cloudinary
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,11 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'sxu3w0&-0ikna@lnwc(47ku_^8)t=%zayp#o=3$fnp0db702o+'
-
+#SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['runningclubwebsite.herokuapp.com']
 
 
 # Application definition
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_instagram',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +53,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'RunningClubSite.urls'
 
@@ -101,6 +107,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+cloudinary.config(
+    cloud_name = 'dlhwb3aae',
+    api_key = '168889776164686',
+    api_secret = "0iQXKOkmlZDAOAxzZwl6ygphybA"
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -118,9 +129,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'media'),
 )
+
+django_heroku.settings(locals())

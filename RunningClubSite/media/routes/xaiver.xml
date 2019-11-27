@@ -1,0 +1,60 @@
+<Route name="xaiver">
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Jefferson Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on William Howard Taft/Calhoun St.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Victory Pkwy.</Text>
+  </Direction>
+  <Option>
+    <Direction>
+      <Text>If Short: Left on MLK Dr.</Text>
+      <Sub>Same as Bob's short.</Sub>
+    </Direction>
+    <Direction>
+      <Text>If Long: Continue on Victory Pkwy.</Text>
+    </Direction>
+  </Option>
+  <Direction>
+    <Text>Right onto Xaviers campus (Past Dana Ave.)</Text>
+  </Direction>
+  <Direction>
+    <Text>Left at top of stairs.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on sidewalks/Herald Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Dana Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Woodburn Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Left on Jonathon Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right onto secret sidewalk by highway.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Victory Pkway.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on Gilbert Ave.</Text>
+  </Direction>
+  <Direction>
+    <Text>Right on MLK Dr.</Text>
+    <Sub>Long/short go back same way from here.</Sub>
+  </Direction>
+  <Direction>
+    <Text>Right on Corry Blvd.</Text>
+  </Direction>
+  <Direction>
+    <Text>Stop at Gettler.</Text>
+  </Direction>
+</Route>

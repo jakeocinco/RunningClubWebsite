@@ -13,7 +13,7 @@
     <div class="row" >
       {% for rr in r %}
         <div class="col-4" style= "text-align: center; margin-top: 4%; margin-bottom: 1.5%;">
-          <img src="/static/{{rr.picture}}" style="width:{{rr.size.w}}%; max-height:{{rr.size.w}}%;">
+          <img src="https://res.cloudinary.com/dlhwb3aae/image/upload/v1574830792/{{rr.picture}}.png" style="width:{{rr.size.w}}%; max-height:{{rr.size.w}}%;">
         </div>
       {% endfor %}
     </div>
@@ -23,6 +23,11 @@
 
           <h3>{{rr.name}}</h3>
           <hr style="border:none; height:1px;background-color:#000080">
+          {% if rr.shortExists %}
+            <p> Long: {{rr.long}} - Short: {{rr.short}}</p>
+          {% else %}
+            <p> Long: {{rr.long}}</p>
+          {% endif %}
           {% for intructs in rr.instructions%}
             <p style="margin:0; padding:0;"> {{intructs.direction}} </p>
             {% for comment in intructs.comment%}
