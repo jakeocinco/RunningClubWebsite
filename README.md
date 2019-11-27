@@ -25,18 +25,12 @@ This product was developed using a plethora of different technologies:
 * Records Page (https://runningclubwebsite.herokuapp.com/records/)
   * The records page features the Top 10 times for men and women in all Cross country events. It can also show a user the individual times of any club runner, if they look up their name in the search box at the top of the screen. A user can search by full, first, or last name. The search will return any results that contain the query. For example, I am in their under both my given first name and my used first name, so searching my last name will yield both results.
 * Information Section
-  * About Page
+  * About Page (https://runningclubwebsite.herokuapp.com/about/)
     * The about page is a very simple page that give a little bit of the clubs history and what our goals are, it also provides some important links for users.
-  * Routes Page
+  * Routes Page (https://runningclubwebsite.herokuapp.com/routes/)
     * The routes page features the routes that are most commonly used by the club team for practices starting at Gettler Stadium. It shows a picture, followed by the routes name, distance, and a break down of directions. These can be updated by administrators on the admin page by adding to the 'Route' model. These are not as simple to create as it requires adding XML formatted text to allow the server a standard format when parsing the routes.
-      * Here is a sample of what the XML may look like:
-        * This is the parent tag for the route - <Route name="routeName">
-        * This is a standard direction - <Direction> <Text>Standard Direction</Text> </Direction>
-        * This is a standard direction with a subcomment - <Direction> <Text>Standard Direction</Text> <Sub>comment.</Sub></Direction>
-        * This is a direction with an option in it -
-          <Option>
-            <Direction><Text>Direction 1a</Text></Direction>
-            <Direction><Text>Direction 1b</Text></Direction>
-          </Option>
-  * FAQ Page
+      * A sample of this XML exists at '/RunningClubWebsite/RunningClubSite/media/routes/'
+  * FAQ Page (https://runningclubwebsite.herokuapp.com/FAQ/)
     * The FAQ page provides a hub for any frequently asked questions users may have. These can again be added at the 'FAQ' model in the admin page.
+  * Executive Board Page (https://runningclubwebsite.herokuapp.com/exec/)
+    * The Executive Page will feature the current group in charge of running club, this information is controlled by administrators on the admin page. There users will have the ability to upload a description of each member as well as the option for a picture and email. In the event that no email is uploaded, you must put 'none' in the email box and it will hide the email display on the screen. Not including a picture will allow the content to fill the whole area, while adding a picture will keep it about 75% description and 25% picture.
