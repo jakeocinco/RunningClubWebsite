@@ -116,9 +116,11 @@
               <h4 class="modal-title text-center"><span style="margin-left:1em">Interest Form</span></h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+          <form method="post" enctype="multipart/form-data" action="/home/">
         <div class="modal-body" style="padding-top: 0px">
           <br>
-          <form method="post" enctype="multipart/form-data" action="/home/">
+
+
             {% csrf_token %}
             <div class="row justify-content-center">
               <div class="col-5">
@@ -134,28 +136,29 @@
             <div class="row justify-content-center">
               <div class="col-10">
                 <h6>Email:</h6>
-                <input type="text" name="email" style="border-radius: 8px;">
+                <input type="text" name="email" style="border-radius: 8px;" size="43">
               </div>
             </div>
             <br>
             <div class="row justify-content-center">
               <div class="col-10">
                 <h6>Grad Year:</h6>
-                <label class="radio-inline"><input type="radio" name="optradio" checked>2020 &nbsp&nbsp</label>
-                <label class="radio-inline"><input type="radio" name="optradio">2021 &nbsp&nbsp</label>
-                <label class="radio-inline"><input type="radio" name="optradio">2022 &nbsp&nbsp</label>
-                <label class="radio-inline"><input type="radio" name="optradio">2023 &nbsp&nbsp</label>
-                <label class="radio-inline"><input type="radio" name="optradio">2024 &nbsp&nbsp</label>
-                <label class="radio-inline"><input type="radio" name="optradio">2025 &nbsp&nbsp</label>
+                <input type="radio" name="optradio" value="2021" checked="checked"> 2021 &nbsp&nbsp
+                <input type="radio" name="optradio" value="2022"> 2022 &nbsp&nbsp
+                <input type="radio" name="optradio" value="2023"> 2023 &nbsp&nbsp
+                <input type="radio" name="optradio" value="2024"> 2024 &nbsp&nbsp
+                <input type="radio" name="optradio" value="2025"> 2025 &nbsp&nbsp
               </div>
             </div>
 
-          </form>
+
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn my-2 my0sm-0" data-dismiss="modal">Close</button>
+          <button class="btn btn-outline-dark my-2 my0sm-0" type="submit"> Submit </button>
         </div>
+        </form>
       </div>
 
     </div>

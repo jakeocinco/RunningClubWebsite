@@ -1,3 +1,7 @@
+import smtplib
+import email
+import sys
+
 from django.shortcuts import render
 from .models import Meet
 from .models import FAQ
@@ -174,6 +178,30 @@ def readExcel(records, races, name):
 
     return validData
 
+
+def emailfnc (first, last, email, gradyear):
+
+    receivers = ['ucrunningclubcontact@gmail.com']
+    subject = last + " - Club Interest"
+
+    sender = 'ucrunningclubcontact@gmail.com'
+    password = 'Catsby90!'
+
+    # It seems that it does not really work when ':' are used in the email content.
+    content =  "Name - " + last + ", " + first + ". Email - " + email + ". Grad year - " + gradyear + "."
+    print(content)
+
+
+    message = "From: Club Interest <ucrunningclubcontact@gmail.com> \nTo: Club Interest <ucrunningclubcontact@gmail.com>\nSubject: " + subject + "\n" + content
+
+    try:
+       emailserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+       emailserver.login(sender,password)
+       emailserver.sendmail(sender, receivers, message)
+       emailserver.quit()
+    except Exception:
+       print ("Email was not sent successfully. Try again.")
+
 # Create your views here.
 def home(request):
 
@@ -182,6 +210,26 @@ def home(request):
         if len(p.content) > 140:
             str = p.content
             p.content = str[0:140] + "..."
+
+    fname = ""
+    lname = ""
+    email = ""
+    year = ""
+    try:
+        fname = request.POST['first_name']
+        print(fname)
+        lname = request.POST['last_name']
+        print(lname)
+        email = request.POST['email']
+        print(email)
+        year = request.POST['optradio']
+        print(year)
+
+        emailfnc(fname, lname, email, year)
+    except:
+        print('No valid name')
+
+
 
     socialMedia = [{'site':'Twitter','handle':'@UCClubRunning','url':'https://twitter.com/ucclubrunning'}, {'site':'Instagram','handle':'@UCClubRunning','url':'https://www.instagram.com/ucclubrunning/'}]
 
