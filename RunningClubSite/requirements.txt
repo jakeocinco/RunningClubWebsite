@@ -14,7 +14,7 @@ gitsome==0.8.4
 gunicorn==20.0.4
 idna==2.8
 kiwisolver==1.1.0
-lxml==4.4.1
+lxml==4.6.5
 matplotlib==3.1.1
 mock==3.0.5
 numpy==1.17.3
